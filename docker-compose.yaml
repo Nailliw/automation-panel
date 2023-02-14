@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: "./server"
+    command: python main.py
+    volumes:
+      - ./server:/app
+    ports:
+      - 8000:8000
+
+  client:
+    image: react
+    container_name: react-client
+    ports:
+      - '3000:3000'
+
