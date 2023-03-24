@@ -1,22 +1,29 @@
-import uvicorn
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi import FastAPI
-from app.routes.api import router as api_router
+# if __name__ == '__main__':
+#     from src.public import app
+#
+#     app.run(debug=True)
 
-app = FastAPI()
 
-origins = ["http://localhost:8000"]
+from ldap3 import Server, Connection, ALL, SUBTREE
+from ldap3.core.exceptions import LDAPException, LDAPBindError
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# ldap server hostname and port
+ldsp_server = f"ldap://localhost:389"
 
-app.include_router(api_router)
+# dn
+root_dn = "dc=example,dc=org"
 
-if __name__ == '__main__':
-    uvicorn.run("main:app", host='0.0.0.0', port=8000, log_level="info", reload=True)
-    print("running")
+# ldap user and password
+ldap_user_name = 'admin'
+ldap_password = 'admin'
+
+# user
+user = f'cn={ldap_user_name},root_dn'
+
+server = Server(ldsp_server, get_info=ALL)
+
+connection = Connection(server,
+                        user=user,
+                        password=ldap_password)
+
+print(f" *** Response from the ldap bind is \n{connection}")

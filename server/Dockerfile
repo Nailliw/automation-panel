@@ -2,7 +2,7 @@ FROM python:3.9
 
 WORKDIR /code
 
-COPY ./requirements.txt /code/requirements.txt
+COPY ../requirements.txt /code/requirements.txt
 
 ENV VIRTUAL_ENV=/opt/venv
 RUN python3 -m venv $VIRTUAL_ENV
