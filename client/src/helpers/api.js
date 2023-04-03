@@ -11,9 +11,12 @@ export const Api = createApi({
     getProcessList: builder.query({
       query: () => `sistema`,
     }),
+        getFunctionalitiesList: builder.query({
+      query: () => `functionality`,
+    }),
   }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetProcessListQuery } = Api
+export const { useGetProcessListQuery, useGetFunctionalitiesListQuery } = Api

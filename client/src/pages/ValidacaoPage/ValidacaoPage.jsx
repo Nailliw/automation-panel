@@ -1,10 +1,10 @@
 import React from "react";
 import { Box } from "@mui/material";
-import { useGetProcessListQuery } from "../../helpers/api";
+import { useGetFunctionalitiesListQuery } from "../../helpers/api";
 import SystemTable from "./../../components/SystemTables/SystemTable";
 
 function ValidacaoPage() {
-  const { data, error, isLoading } = useGetProcessListQuery();
+  const { data, error, isLoading } = useGetFunctionalitiesListQuery();
 
   return (
     <>

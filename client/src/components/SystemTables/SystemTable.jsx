@@ -8,7 +8,8 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
+const StyledTableCell = styled(TableCell)(({ theme, status }) => ({
+  backgroundColor: status == true ? "green" : "red",
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
     color: theme.palette.common.white,
@@ -39,15 +40,14 @@ function SystemTable({ items }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {items.map((row) => (
-            <StyledTableRow
-              key={row.name}
-              color={row.status == "True" ? "red" : "green"}
-            >
-              <StyledTableCell component="th" scope="row">
+          {items.data.map((row) => (
+            <StyledTableRow key={row.name}>
+              <StyledTableCell component="th" scope="row" status={row.status}>
                 {row.name}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.status}</StyledTableCell>
+              <StyledTableCell align="right" status={row.status}>
+                {row.status == true ? "ON" : "OFF"}
+              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
