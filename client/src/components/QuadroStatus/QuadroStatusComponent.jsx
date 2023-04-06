@@ -11,10 +11,15 @@ function QuadroStatusComponent({ items }) {
               maxWidth: "20vw",
               minWidth: "15vw",
               margin: "10px",
-              backgroundColor: row.status == true ? "green" : "red",
+              backgroundColor: row.status == true ? "#a2f1a2" : "#efc4d3",
             }}
           >
-            <CardContent>
+            <CardContent
+              style={{
+                border:
+                  row.status == true ? " 2px solid green" : " 2px solid red",
+              }}
+            >
               <Typography variant="h5" component="div">
                 {row.name}
               </Typography>

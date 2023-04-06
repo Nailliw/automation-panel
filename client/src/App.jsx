@@ -19,12 +19,13 @@ function App() {
   return (
     <Box>
       <Routes>
+        <Route path="/login" element={<MainLayout />}></Route>
         <Route path="/" element={<MainLayout />}>
           {<Route path="/dashboard" element={<DashboardPage />} />}
           {<Route path="/correcao" element={<div>correcao</div>} />}
           {<Route path="/validacao" element={<ValidacaoPage />} />}
-          {<Route path="/correcao_sinep" element={<CorrecaoPage />} />}
-          {<Route path="/correcao_atm" element={<CorrecaoPage />} />}
+          {<Route path="/reciclagem" element={<CorrecaoPage />} />}
+          {/* {<Route path="/correcao_atm" element={<CorrecaoPage />} />} */}
         </Route>
       </Routes>
     </Box>

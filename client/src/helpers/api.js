@@ -11,12 +11,29 @@ export const Api = createApi({
     getProcessList: builder.query({
       query: () => `sistema`,
     }),
-        getFunctionalitiesList: builder.query({
+    getFunctionalitiesList: builder.query({
       query: () => `functionality`,
+    }),
+    getRecentLogs: builder.query({
+      query: () => `recent-logs`,
+    }),
+    getValidacaoLogs: builder.query({
+      query: () => `validacao-logs`,
+    }),
+    addCorrecao: builder.mutation({
+      query: (payload) => ({
+        url: '/corecao',
+        method: 'POST',
+        body: payload,
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      }),
+      invalidatesTags: ['Post'],
     }),
   }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetProcessListQuery, useGetFunctionalitiesListQuery } = Api
+export const { useGetProcessListQuery, useGetFunctionalitiesListQuery, useGetRecentLogsQuery, useGetValidacaoLogsQuery, useAddCorrecaoMutation } = Api

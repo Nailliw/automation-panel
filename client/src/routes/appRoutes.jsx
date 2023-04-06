@@ -1,6 +1,3 @@
-import DashboardPage from "../pages/DashboardPage";
-import HomePage from "./../pages/HomePage";
-
 const appRoutes = [
   {
     index: true,
@@ -19,14 +16,9 @@ const appRoutes = [
     name: "Processos de Correção",
     child: [
       {
-        path: "/correcao_sinep",
-        state: "correcao_sinep",
-        name: "SINEP",
-      },
-      {
-        path: "/correcao_atm",
-        state: "correcao_atm",
-        name: "ATM",
+        path: "/reciclagem",
+        state: "reciclagem",
+        name: "Reciclagem",
       },
     ],
   },

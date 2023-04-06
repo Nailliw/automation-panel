@@ -2,6 +2,8 @@ import React from "react";
 import { useGetFunctionalitiesListQuery } from "../helpers/api";
 import { Box } from "@mui/material";
 import QuadroStatusComponent from "../components/QuadroStatus/QuadroStatusComponent";
+import ErrorComponent from "../components/ErrorComponent";
+import LoadingComponent from "../components/LoadingComponent";
 
 function DashboardPage() {
   const { data, error, isLoading } = useGetFunctionalitiesListQuery();
@@ -13,9 +15,11 @@ function DashboardPage() {
       }}
     >
       {error ? (
-        <div>ERRO</div>
+        <div>
+          <ErrorComponent />
+        </div>
       ) : isLoading ? (
-        <>Loading...</>
+        <LoadingComponent />
       ) : data ? (
         <QuadroStatusComponent items={data} />
       ) : null}
