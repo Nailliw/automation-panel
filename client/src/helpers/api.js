@@ -31,9 +31,20 @@ export const Api = createApi({
       }),
       invalidatesTags: ['Post'],
     }),
+    addNewSolicitacao: builder.mutation({
+      query: (payload) => ({
+        url: '/corecao',
+        method: 'POST',
+        body: payload,
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      }),
+      invalidatesTags: ['Post'],
+    }),
   }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetProcessListQuery, useGetFunctionalitiesListQuery, useGetRecentLogsQuery, useGetValidacaoLogsQuery, useAddCorrecaoMutation } = Api
+export const { useGetProcessListQuery, useGetFunctionalitiesListQuery, useGetRecentLogsQuery, useGetValidacaoLogsQuery, useAddCorrecaoMutation, useAddNewSolicitacaoMutation } = Api

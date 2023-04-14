@@ -88,7 +88,7 @@ function ResponsiveAppBar() {
         width: `calc(100% - ${sizeConfigs.sidebar.width})`,
         ml: sizeConfigs.sidebar.width,
         boxShadow: "unset",
-        backgroundColor: colorConfigs.sidebar.bg,
+        backgroundColor: colorConfigs.topbar.bg,
         color: colorConfigs.topbar.color,
       }}
     >

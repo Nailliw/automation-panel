@@ -8,6 +8,8 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import { Link } from "react-router-dom";
 import "./sidebar.css";
 import appRoutes from "./../../routes/appRoutes";
+import colorConfigs from "../../configs/colorConfigs";
+import { Divider, ListItemIcon } from "@mui/material";
 
 const SidebarItem = () => {
   const [open, setOpen] = React.useState(true);
@@ -23,24 +25,69 @@ const SidebarItem = () => {
     >
       {appRoutes.map((route, index) =>
         !route.child ? (
-          <Link to={route.path} className="menu-bars">
-            <ListItemButton>
-              <ListItemText primary={route.name} />
+          <Link
+            to={route.path}
+            style={{
+              textDecoration: "none",
+              fontSize: "5px",
+            }}
+            className="menu-bars"
+            key={index}
+          >
+            <ListItemButton
+              sx={{ padding: "1px", marginLeft: "1vw" }}
+              key={index}
+            >
+              <ListItemIcon>{route.icon}</ListItemIcon>
+              <ListItemText
+                sx={{
+                  color: colorConfigs.sidebar.color,
+                  marginLeft: "-1.5vw",
+                }}
+                primary={route.name}
+                key={index}
+              />
             </ListItemButton>
+            <Divider />
           </Link>
         ) : (
           <>
-            <ListItemButton onClick={handleClick}>
-              <ListItemText primary={route.name} />
+            <ListItemButton
+              onClick={handleClick}
+              sx={{ padding: "1px", marginLeft: "1vw" }}
+            >
+              <ListItemIcon>{route.icon}</ListItemIcon>
+              <ListItemText
+                primary={route.name}
+                sx={{
+                  color: colorConfigs.sidebar.color,
+                  marginLeft: "-1.5vw",
+                }}
+              />
               {open ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             <Collapse in={open} timeout="auto" unmountOnExit>
               {console.log(route.child)}
               {route.child.map((child, index) => (
-                <List component="div" disablePadding>
-                  <Link to={child.path} className="menu-bars">
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemText primary={child.name} />
+                <List component="div" disablePadding key={index}>
+                  <Link
+                    to={child.path}
+                    key={index}
+                    style={{
+                      textDecoration: "none",
+                      fontSize: "5px",
+                    }}
+                  >
+                    <ListItemButton sx={{ pl: 4, height: "4vh" }} key={index}>
+                      <ListItemIcon>{child.icon}</ListItemIcon>
+                      <ListItemText
+                        primary={child.name}
+                        key={index}
+                        sx={{
+                          color: colorConfigs.sidebar.color,
+                          marginLeft: "-1.5vw",
+                        }}
+                      />
                     </ListItemButton>
                   </Link>
                 </List>

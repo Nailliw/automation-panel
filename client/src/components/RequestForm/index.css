@@ -1,0 +1,21 @@
+.form-control {
+    background-color:beige;
+}
+
+.form-container {
+    width: 400px;
+    display: flex;
+    flex-wrap: nowrap;
+    font-weight: bolder;
+    
+}
+
+.label-form {
+    margin: 10px 20px 20px 20px;
+    position: relative;
+    text-align:justify;
+}
+.label-form:nth-child(1) {
+    margin-left: 100px;
+    position: relative;
+}

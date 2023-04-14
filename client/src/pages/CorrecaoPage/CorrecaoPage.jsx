@@ -72,35 +72,7 @@ function CorrecaoPage() {
           minHeight: "75%",
         }}
       >
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            aria-label="basic tabs example"
-          >
-            <Tab label="Solicitação" {...a11yProps(0)} />
-
-            <Tab label="Processo" {...a11yProps(1)} />
-            <Tab label="Logs" {...a11yProps(2)} />
-          </Tabs>
-        </Box>
-        <TabPanel value={value} index={0}>
-          <RequestFormComponent />
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          {error ? (
-            <div>
-              <ErrorComponent />
-            </div>
-          ) : isLoading ? (
-            <LoadingComponent />
-          ) : data ? (
-            <SystemTableCorrecao items={data} />
-          ) : null}
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-          <LogsComponent />
-        </TabPanel>
+        <RequestFormComponent />
       </Box>
     </>
   );
