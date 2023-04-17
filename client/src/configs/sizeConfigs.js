@@ -13,7 +13,7 @@ const sizeConfigs = {
   },
   minor_text:{},
   title_text:{
-    font_size:"2vh"
+    font_size:"1.5vh"
   },
 };
 

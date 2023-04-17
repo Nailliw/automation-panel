@@ -1,4 +1,4 @@
-import { Navigate, Routes, Route } from "react-router-dom";
+import {Navigate, Routes, Route, parsePath} from "react-router-dom";
 import "./App.css";
 import { Box } from "@mui/material";
 import MainLayout from "./layouts/MainLayout";
@@ -18,7 +18,7 @@ function App() {
         <Route path="/" element={<MainLayout />}>
           {<Route path="/dashboard" element={<DashboardPage />} />}
           {<Route path="/lista_correcao" element={<ListCorrecaoPage />} />}
-          {<Route path="/lista_correcao/:system" element={<CorrecaoPage />} />}
+          {<Route path="/lista_correcao/:system" element={<CorrecaoPage/>} />}
           {<Route path="/solicitacoes" element={<div>Solicitações</div>} />}
           {<Route path="/validacao" element={<ValidacaoPage />} />}
           {<Route path="/faq" element={<FAQPage />} />}

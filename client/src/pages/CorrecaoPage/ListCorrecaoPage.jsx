@@ -1,7 +1,6 @@
 import { Box, List } from "@mui/material";
 import React from "react";
-import { Link } from "react-router-dom";
-import BuildIcon from "@mui/icons-material/Build";
+import {Link} from "react-router-dom";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import sizeConfigs from "../../configs/sizeConfigs";
 import colorConfigs from "../../configs/colorConfigs";
@@ -31,6 +30,8 @@ function ListCorrecaoPage() {
         alignItems: "center",
       }}
     >
+
+
       <Box
         sx={{
           width: "100%",

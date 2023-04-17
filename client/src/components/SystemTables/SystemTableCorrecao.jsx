@@ -11,7 +11,7 @@ import { Button } from "@mui/material";
 import { useAddCorrecaoMutation } from "../../helpers/api";
 
 const StyledTableCell = styled(TableCell)(({ theme, status }) => ({
-  backgroundColor: status == true ? "#a2f1a2" : "#efc4d3",
+  backgroundColor: status === true ? "#a2f1a2" : "#efc4d3",
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
     color: theme.palette.common.white,
@@ -68,7 +68,7 @@ function SystemTableCorrecao({ items }) {
                 {row.name}
               </StyledTableCell>
               <StyledTableCell align="right" status={row.status}>
-                {row.status == true ? "ON" : "OFF"}
+                {row.status === true ? "ON" : "OFF"}
               </StyledTableCell>
               <StyledTableCell align="right" status={row.status}>
                 <Button variant="contained">Corrigir</Button>
